@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       value: '',
-      tags: ['nome', 'work', 'travel'],
+      tags: ['home', 'work', 'travel'],
     };
   },
   methods: {
@@ -24,7 +24,8 @@ export default {
       const title = this.value;
       const tag = this.tag;
       this.$emit('onSubmit', { title, tag });
-      console.log(this.value);
+      // console.log(this.value);
+      //переведи this.value в title, согласно переменным выше
       this.value = '';
       this.tag = '';
     },

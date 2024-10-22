@@ -2,7 +2,7 @@
   <div class="notes-list">
     <div class="note-item" v-for="(note, index) in items" :key="index">
       <div class="note-header">
-        <p>{{ note }}</p>
+        <p>{{ note.title }}</p>
         <p style="cursor: pointer" @click="$emit('onRemove', index)">
           &#10005;
         </p>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import TagsList from '@/components/UI/TagsList.vue';
 export default {
   data() {
     return {};

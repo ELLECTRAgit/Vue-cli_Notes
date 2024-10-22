@@ -10,20 +10,54 @@ import List from '@/components/Notes/NotesList';
 export default {
   data() {
     return {
-      notes: ['task 1', 'task 2', 'task 3'],
+      notes: [
+        {
+          title: 'Закончить курс',
+          tags: ['work', 'home']
+        },
+        {
+          title: 'Выполнить ДЗ',
+          tags: ['home']
+        },
+        {
+          title: 'Уйти в отпуск',
+          tags: ['travel']
+        }
+      ],
     };
   },
   components: {
     Form,
     List,
   },
+  watch: {
+    notes: {
+    handler (upgradeList) {
+      localStorage.setItem('notes', JSON.stringify(upgradeList))
+    },
+    deep: true
+    }
+  },
+  mounted () {
+    this.getNotes ();
+  },
   methods: {
-    handleSubmit(note) {
+    handleSubmit({title, tag}) {
+      const note = {
+        title: title,
+        tags: [tag]
+      }
       this.notes.push(note);
     },
     handleRemove(index) {
       this.notes.splice(index, 1);
     },
+    getNotes () {
+      const localNotes = localStorage.getItem('notes');
+      if (localNotes) {
+        this.notes = JSON.parse(localNotes);
+      }
+    }
   },
 };
 </script>
