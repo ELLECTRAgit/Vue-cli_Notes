@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       value: '',
-      tags: ['home', 'work', 'travel'],
+      tags: ['nome', 'work', 'travel'],
     };
   },
   methods: {
@@ -30,14 +30,6 @@ export default {
     },
     handlerTags(tag) {
       console.log(tag);
-      tag.class.
-      // const itemsTags = document.querySelectorAll('.tag-item');
-      // console.log(itemsTags);
-      // itemsTags.forEach((item) => {
-      //   item.addEventListener('click', () => {
-      //     item.classList.toggle('isActiveItem');
-      //   });
-      // });
     },
   },
 };
