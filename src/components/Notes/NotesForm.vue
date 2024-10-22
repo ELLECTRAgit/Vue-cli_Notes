@@ -1,9 +1,9 @@
 <template>
   <div class="note-form__wrapper">
-    <form class="note-form" @submit.prevent="onSubmit">
+    <form class="note-form">
       <textarea v-model="value" placeholder="Сделайте запись" />
       <TagsList :items="tags" @onItemClick="handlerTags" isActiveItem />
-      <button class="btn btnPimary" type="submit">Добавьте запись</button>
+      <button @click="onSubmit" class="btn btnPimary" type="submit">Добавьте запись</button>
     </form>
   </div>
 </template>
@@ -17,20 +17,22 @@ export default {
     return {
       value: '',
       tags: ['home', 'work', 'travel'],
+      activeTags: [],
     };
   },
   methods: {
     onSubmit() {
       const title = this.value;
-      const tag = this.tag;
-      this.$emit('onSubmit', { title, tag });
-      // console.log(this.value);
-      //переведи this.value в title, согласно переменным выше
+      const activeTags = this.activeTags;
+      console.log('tags array', activeTags);
+      this.$emit('onSubmit', { title, activeTags });
       this.value = '';
-      this.tag = '';
+      this.activeTags = [];
     },
     handlerTags(tag) {
-      console.log(tag);
+      console.log('tag', tag);
+      this.activeTags.push(tag);
+      console.log('activeTags', this.activeTags);
     },
   },
 };

@@ -42,10 +42,10 @@ export default {
     this.getNotes ();
   },
   methods: {
-    handleSubmit({title, tag}) {
+    handleSubmit({title, activeTags}) {
       const note = {
         title: title,
-        tags: [tag]
+        tags: activeTags
       }
       this.notes.push(note);
     },
