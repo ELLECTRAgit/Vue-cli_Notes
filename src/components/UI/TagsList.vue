@@ -5,7 +5,7 @@
       v-for="item in items"
       :key="item"
       @click="$emit('onItemClick', item)"
-      :class="[{isPreview: isPreview}, {isActiveItem: isActiveItem}]"
+      :class="[{ isPreview: isPreview }, { isActiveItem: isActiveItem }]"
     >
       <span>{{ item }}</span>
     </div>
@@ -13,9 +13,8 @@
 </template>
 <script>
 export default {
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
   props: {
     items: {
@@ -24,12 +23,12 @@ export default {
     },
     isPreview: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isActiveItem: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 };
 </script>
@@ -55,7 +54,8 @@ export default {
     }
   }
   &.isActiveItem {
-    color: #e04444;
+    background-color: #444ce0;
+    color: #ffffff;
   }
   &:last-child {
     margin-right: 0;

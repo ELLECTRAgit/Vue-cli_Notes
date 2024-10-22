@@ -8,7 +8,11 @@
         </p>
       </div>
       <div class="note-footer">
-        <TagsList v-if="note.tags && note.tags.length > 0" :items="note.tags" isPreview/>
+        <TagsList
+          v-if="note.tags && note.tags.length > 0"
+          :items="note.tags"
+          isPreview
+        />
       </div>
     </div>
   </div>
@@ -27,8 +31,8 @@ export default {
     },
   },
   components: {
-    TagsList
-  }
+    TagsList,
+  },
 };
 </script>
 <style lang="scss">

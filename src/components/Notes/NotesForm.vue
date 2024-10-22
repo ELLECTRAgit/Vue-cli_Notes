@@ -2,7 +2,7 @@
   <div class="note-form__wrapper">
     <form class="note-form" @submit.prevent="onSubmit">
       <textarea v-model="value" placeholder="Сделайте запись" />
-      <TagsList :items="tags" @onItemClick="handlerTags" />
+      <TagsList :items="tags" @onItemClick="handlerTags" isActiveItem />
       <button class="btn btnPimary" type="submit">Добавьте запись</button>
     </form>
   </div>
@@ -21,19 +21,23 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$emit('onSubmit', this.value);
+      const title = this.value;
+      const tag = this.tag;
+      this.$emit('onSubmit', { title, tag });
       console.log(this.value);
       this.value = '';
+      this.tag = '';
     },
     handlerTags(tag) {
       console.log(tag);
-      const itemsTags = document.querySelectorAll('.tag-item');
-      console.log(itemsTags);
-      itemsTags.forEach((item) => {
-        item.addEventListener('click', () => {
-          item.classList.toggle('isActiveItem');
-        });
-      });
+      tag.class.
+      // const itemsTags = document.querySelectorAll('.tag-item');
+      // console.log(itemsTags);
+      // itemsTags.forEach((item) => {
+      //   item.addEventListener('click', () => {
+      //     item.classList.toggle('isActiveItem');
+      //   });
+      // });
     },
   },
 };

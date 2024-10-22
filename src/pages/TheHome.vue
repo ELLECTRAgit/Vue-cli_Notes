@@ -43,11 +43,15 @@ export default {
   },
   methods: {
     // submit note
-    handleSubmit(title) {
+    handleSubmit({ title, tag }) {
+      const tagsArray = [];
+      tagsArray.push(tag);
       const note = {
         title: title,
-        tags: [],
+        tags: [tag],
       };
+      console.log(title);
+      console.log(tag);
       this.notes.push(note);
     },
     // remove note
