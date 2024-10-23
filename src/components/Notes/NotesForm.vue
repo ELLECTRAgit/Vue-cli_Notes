@@ -25,6 +25,7 @@ export default {
       activeItems: {},
     };
   },
+  
   methods: {
     onSubmit() {
       const title = this.value;
