@@ -2,10 +2,10 @@
   <div class="tags-list">
     <div
       class="tag-item"
-      v-for="item in items"
+      v-for="(item) in items"
       :key="item"
       @click="$emit('onItemClick', item)"
-      :class="[{ isPreview: isPreview }, { isActiveItem: isActiveItem }]"
+      :class="[{ isPreview: isPreview }, {isActiveItem: activeItems[item]}]"
     >
       <span>{{ item }}</span>
     </div>
@@ -14,7 +14,8 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+    };
   },
   props: {
     items: {
@@ -25,9 +26,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    isActiveItem: {
-      type: Boolean,
-      default: false,
+    activeItems: {
+      type: Object,
+      default: () => ({}),
     },
   },
 };
