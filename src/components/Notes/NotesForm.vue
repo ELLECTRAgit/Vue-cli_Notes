@@ -2,7 +2,7 @@
   <div class="note-form__wrapper">
     <form class="note-form">
       <textarea v-model="value" placeholder="Сделайте запись" />
-      <TagsList :items="tags" @onItemClick="handlerTags" isActiveItem />
+      <TagsList :items="tags" @onItemClick="handlerTags"  />
       <button @click="onSubmit" class="btn btnPimary" type="submit">Добавьте запись</button>
     </form>
   </div>
@@ -30,9 +30,12 @@ export default {
       this.activeTags = [];
     },
     handlerTags(tag) {
-      console.log('tag', tag);
-      this.activeTags.push(tag);
-      console.log('activeTags', this.activeTags);
+      const index = this.activeTags.indexOf(tag);
+      if (index != -1) {
+        this.activeTags.splice(index, 1);
+      } else {
+        this.activeTags.push(tag);
+      }
     },
   },
 };
